@@ -30,7 +30,6 @@ $router->get('/products', ProductController::class . '@index'); // Danh sách s�
 $router->get('/products/{id}', ProductController::class . '@detail'); // Chi tiết sản phẩm
 
 
-
 $router->get('/login', LoginController::class . '@showFormLogin');
 $router->post('/handle-login', LoginController::class . '@login');
 $router->get('/logout', LoginController::class . '@logout');
