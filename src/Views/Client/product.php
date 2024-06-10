@@ -48,10 +48,7 @@ unset($_SESSION['msg']);
             <td>{{ $product['created_at'] }}</td>
             <td>{{ $product['updated_at'] }}</td>
             <td>
-                <a href="{{ url(" admin/products/{$product['id']}/show") }}" class="btn btn-info">Xem</a>
-                <a href="{{ url(" admin/products/{$product['id']}/edit") }}" class="btn btn-warning">Sửa</a>
-                <a href="{{ url(" admin/products/{$product['id']}/delete") }}"
-                    onclick="return confirm('Chắc chắn xóa không?');" class="btn btn-danger">Xóa</a>
+                <a href="{{ url(" /products/{$product['id']}") }}" class="btn btn-info">Xem</a>
             </td>
         </tr>
         @endforeach

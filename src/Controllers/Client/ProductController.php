@@ -24,21 +24,29 @@ class ProductController extends Controller
             'products' => $products
         ]);
     }
+    public function show($id)
+    {
+        $product = $this->product->findByID($id);
 
-    public function detail($id)
-{
-    // Lấy chi tiết sản phẩm theo ID
-    $product = $this->product->findByID($id);
-
-    // Kiểm tra nếu sản phẩm không tồn tại
-    if (!$product) {
-        // Có thể chuyển hướng đến trang 404 hoặc trang lỗi
-        return $this->renderViewClient('errors.404');
+        $this->renderViewAdmin('products.show', [
+            'product' => $product
+        ]);
     }
 
-    // Hiển thị view chi tiết sản phẩm
-    $this->renderViewClient('products.detail', [
-        'product' => $product
-    ]);
-}
+    public function detail($id)
+    {
+        // Lấy chi tiết sản phẩm theo ID
+        $product = $this->product->findByID($id);
+
+        // Kiểm tra nếu sản phẩm không tồn tại
+        if (!$product) {
+            // Có thể chuyển hướng đến trang 404 hoặc trang lỗi
+            return $this->renderViewClient('errors.404');
+        }
+
+        // Hiển thị view chi tiết sản phẩm
+        $this->renderViewClient('products.detail', [
+            'product' => $product
+        ]);
+    }
 }

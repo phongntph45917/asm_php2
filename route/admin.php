@@ -13,71 +13,55 @@
 use Asm\Php2\Controllers\Admin\DashboardController;
 use Asm\Php2\Controllers\Admin\ProductController;
 use Asm\Php2\Controllers\Admin\UserController;
+use Asm\Php2\Controllers\Admin\DanhmucController;
 
-<<<<<<< HEAD
-$router->before('GET|POST', '/admin/*.*', function() {
-
-    if (!auth_check()) {
-        header('location: ' . url('/login') );
-        exit();
-    } 
-
-    if (!is_admin()) {
-        header('location: ' . url() );
-        exit();
-    }
-    
-=======
 $router->before('GET|POST', '/admin/*.*', function () {
-
-    if (!auth_check()) {
-        header('location: ' . url('auth/login'));
+    if (!isset($_SESSION['user'])) {
+        header('location: ' . url('login'));
         exit();
     }
-
-    if (!is_admin()) {
-        header('location: ' . url());
-        exit();
-    }
-
->>>>>>> 55273042b8fbe494c0984f0ecdd005caacab8736
 });
+
 
 $router->mount('/admin', function () use ($router) {
-
     $router->get('/', DashboardController::class . '@dashboard');
-
-    // CRUD PRODUCT
-    $router->mount('/products', function () use ($router) {
-        $router->get('/',               ProductController::class . '@index');  // Danh sách
-        $router->get('/create',         ProductController::class . '@create'); // Show form thêm mới
-        $router->post('/store',         ProductController::class . '@store');  // Lưu mới vào DB
-        $router->get('/{id}/show',      ProductController::class . '@show');   // Xem chi tiết
-        $router->get('/{id}/edit',      ProductController::class . '@edit');   // Show form sửa
-        $router->post('/{id}/update',   ProductController::class . '@update'); // Lưu sửa vào DB
-        $router->get('/{id}/delete',    ProductController::class . '@delete'); // Xóa
+    // CRUD USER
+    $router->mount('/users', function () use ($router) {
+        $router->get('/', UserController::class . '@index');
+        $router->get('/create', UserController::class . '@create');
+        $router->post('/store', UserController::class . '@store');
+        $router->get('/{id}/show', UserController::class . '@show');
+        $router->get('/{id}/edit', UserController::class . '@edit');
+        $router->post('/{id}/update', UserController::class . '@update');
+        $router->get('/{id}/delete', UserController::class . '@delete');
     });
 
-    $router->mount('/users', function () use ($router) {
-<<<<<<< HEAD
-        $router->get('/',               UserController::class . '@index');  // Danh sách
-        $router->get('/create',         UserController::class . '@create'); // Show form thêm mới
-        $router->post('/store',         UserController::class . '@store');  // Lưu mới vào DB
-        $router->get('/{id}/show',      UserController::class . '@show');   // Xem chi tiết
-        $router->get('/{id}/edit',      UserController::class . '@edit');   // Show form sửa
-        $router->post('/{id}/update',   UserController::class . '@update'); // Lưu sửa vào DB
-        $router->get('/{id}/delete',    UserController::class . '@delete'); // Xóa
+    // CRUD DANHMUC
+    $router->mount('/danhmucs', function () use ($router) {
+        $router->get('/', DanhmucController::class . '@index');
+        $router->get('/create', DanhmucController::class . '@create');
+        $router->post('/store', DanhmucController::class . '@store');
+        $router->get('/{id}/show', DanhmucController::class . '@show');
+        $router->get('/{id}/edit', DanhmucController::class . '@edit');
+        $router->post('/{id}/update', DanhmucController::class . '@update');
+        $router->get('/{id}/delete', DanhmucController::class . '@delete');
     });
     
-=======
-        $router->get('/', UserController::class . '@index');  // Danh sách
-        $router->get('/create', UserController::class . '@create'); // Show form thêm mới
-        $router->post('/store', UserController::class . '@store');  // Lưu mới vào DB
-        $router->get('/{id}/show', UserController::class . '@show');   // Xem chi tiết
-        $router->get('/{id}/edit', UserController::class . '@edit');   // Show form sửa
-        $router->post('/{id}/update', UserController::class . '@update'); // Lưu sửa vào DB
-        $router->get('/{id}/delete', UserController::class . '@delete'); // Xóa
+    $router->mount('/products', function () use ($router) {
+        $router->get('/', ProductController::class . '@index');  // Danh sách
+        $router->get('/create', ProductController::class . '@create'); // Show form thêm mới
+        $router->post('/store', ProductController::class . '@store');  // Lưu mới vào DB
+        $router->get('/{id}/show', ProductController::class . '@show');   // Xem chi tiết
+        $router->get('/{id}/edit', ProductController::class . '@edit');   // Show form sửa
+        $router->post('/{id}/update', ProductController::class . '@update'); // Lưu sửa vào DB
+        $router->get('/{id}/delete', ProductController::class . '@delete'); // Xóa
     });
-
->>>>>>> 55273042b8fbe494c0984f0ecdd005caacab8736
 });
+// $router->mount('/admin', function () use ($router) {
+
+//     $router->get('/', DashboardController::class . '@dashboard');
+
+//     // CRUD USER
+
+
+// });

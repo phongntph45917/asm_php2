@@ -8,9 +8,7 @@ class DashboardController extends Controller
 {
     public function dashboard()
     {
-        $name = 'dcm php2';
-        $this->renderViewClient('dashboard', [
-            'name' => $name,
-        ]);
+
+        $this->renderViewClient(__FUNCTION__);
     }
 }

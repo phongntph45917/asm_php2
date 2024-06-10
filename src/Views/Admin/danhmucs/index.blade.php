@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Quản lý Sản phẩm
+    Quản lý Danh mục
 @endsection
 
 @section('content')
@@ -23,36 +23,28 @@
         @endphp
     @endif
 
+    <a href="{{ url('admin/danhmucs/create') }}" class="btn btn-primary">Thêm mới</a>
+
     <table class="table table-striped">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>IMG THUMBNAIL</th>
-                <th>NAME</th>
-                <th>Category Name</th>
-                <th>CREATED AT</th>
-                <th>UPDATED AT</th>
-                <th>ACTION</th>
+                <th>Tên</th>
+                <th>Hành động</th>
             </tr>
         </thead>
         <tbody>
-
-            @foreach ($products as $product)
+            @foreach ($danhmucs as $danhmuc)
                 <tr>
-                    <td>{{ $product['id'] }}</td>
+                    <td>{{ $danhmuc['id'] }}</td>
+                    <td>{{ $danhmuc['name'] }}</td>
                     <td>
-                        <img src="{{ asset($product['img_thumbnail']) }}" width="100px" alt="">
-                    </td>
-                    <td>{{ $product['name'] }}</td>
-                    <td>{{ $product['c_name'] }}</td>
-                    <td>{{ $product['created_at'] }}</td>
-                    <td>{{ $product['updated_at'] }}</td>
-                    <td>
-                        <a href="{{ url(" /products/{$product['id']}") }}" class="btn btn-info">Xem</a>
+                        <a href="{{ url("admin/danhmucs/{$danhmuc['id']}/show") }}">Xem</a>
+                        <a href="{{ url("admin/danhmucs/{$danhmuc['id']}/edit") }}">Sửa</a>
+                        <a href="{{ url("admin/danhmucs/{$danhmuc['id']}/delete") }}">Xóa</a>
                     </td>
                 </tr>
             @endforeach
-
         </tbody>
     </table>
 @endsection
