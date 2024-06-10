@@ -21,7 +21,6 @@
         @if (!empty($_SESSION['error']))
             <div class="alert alert-warning mt-3 mb-3">
                 {{ $_SESSION['error'] }}
-                {{ echo "hehehe";}}
             </div>
 
             @php
