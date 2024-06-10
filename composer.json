@@ -1,0 +1,26 @@
+{
+    "name": "ph45917/php-oop",
+    "autoload": {
+        "psr-4": {
+            "Asm\\Php2\\": "src/"
+        },
+        "files": [
+            "helper.php"
+        ]
+    },
+
+    "authors": [
+        {
+            "name": "phongntph45917",
+            "email": "phongntph45917@fpt.edu.vn"
+        }
+    ],
+    "require": {
+        "bramus/router": "~1.6",
+        "eftec/bladeone": "^4.13",
+        "doctrine/dbal": "^4.0",
+        "rakit/validation": "^1.4",
+        "vlucas/phpdotenv": "^5.6"
+
+    }
+}
