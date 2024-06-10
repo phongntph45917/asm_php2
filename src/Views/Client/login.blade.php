@@ -41,6 +41,7 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary">Submit</button>
+                <i>You don't have an account ?<a href="{{ url("/register") }}">Register</a></i>
             </form>
         </div>
     </div>
