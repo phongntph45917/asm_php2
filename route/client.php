@@ -15,11 +15,11 @@
 
 use Asm\Php2\Controllers\Client\AboutController;
 use Asm\Php2\Controllers\Client\ContactController;
-use Asm\Php2\Controllers\Client\HomeController;
+use Asm\Php2\Controllers\Client\DashboardController;
 use Asm\Php2\Controllers\Client\LoginController;
 use Asm\Php2\Controllers\Client\ProductController;
 
-$router->get('/', HomeController::class . '@index');
+$router->get('/', DashboardController::class . '@dashboard');
 $router->get('/about', AboutController::class . '@index');
 
 $router->get('/contact', ContactController::class . '@index');
