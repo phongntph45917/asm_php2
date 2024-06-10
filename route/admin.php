@@ -19,6 +19,10 @@ $router->before('GET|POST', '/admin/*.*', function() {
         header('location: ' . url('login') );
         exit();
     }
+    
+    if(!is_admin()){
+        header('location : ' . url() );
+    }
 });
 
 

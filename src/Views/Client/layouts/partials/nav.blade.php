@@ -86,7 +86,13 @@
                             <a class="nav-link" href="shop.html">Shop</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('login')}}">login</a>
+                            @if (!auth_check())
+                                <a class="nav-link" href="{{ url('/login') }}">Login</a>
+                            @endif
+
+                            @if (auth_check())
+                                <a class="nav-link" href="{{ url('/logout') }}">Logout</a>
+                            @endif
                         </li>
                     </ul>
 
