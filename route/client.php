@@ -31,4 +31,4 @@ $router->get('/products/{id}', ProductController::class . '@detail'); // Chi tiá
 
 $router->get('/login', LoginController::class . '@showFormLogin');
 $router->post('/handle-login', LoginController::class . '@login');
-$router->post('/logout', LoginController::class . '@logout');
+$router->get('/logout', LoginController::class . '@logout');

@@ -16,25 +16,25 @@ if (!function_exists('url')) {
     }
 }
 
-if (!function_exists('auth_check')) { // check đã đăng nhập
+if (!function_exists('auth_check')) { // Check đã đăng nhập
     function auth_check()
     {
-        if (isset($_SESSION['user'])) {
-            header('Location: ' . url('admin/'));
-            exit;
-        }
+        return isset($_SESSION['user']);
     }
 }
-if (!function_exists('is_admin')) { // check là admin
+
+if (!function_exists('is_admin')) { // Check là admin
     function is_admin()
     {
         return auth_check() && $_SESSION['user']['type'] == 'admin';
     }
 }
-if (!function_exists('avoid_login')) { // bỏ qua trang login khi đã đăng nhập
+
+if (!function_exists('avoid_login')) { // Bỏ qua trang Login khi đã đăng nhập
     function avoid_login()
     {
         if (auth_check()) {
+
             if ($_SESSION['user']['type'] == 'admin') {
                 header('Location: ' . url('admin/'));
                 exit;

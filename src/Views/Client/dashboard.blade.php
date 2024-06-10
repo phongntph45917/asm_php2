@@ -34,6 +34,26 @@
                         Login
                     </button>
                 </div>
+
+                @foreach ($products as $product)
+                    <tr>
+                        <td>{{ $product['id'] }}</td>
+                        <td>
+                            <img src="{{ asset($product['img_thumbnail']) }}" width="100px" alt="">
+                        </td>
+                        <td>{{ $product['name'] }}</td>
+                        <td>{{ $product['c_name'] }}</td>
+                        <td>{{ $product['created_at'] }}</td>
+                        <td>{{ $product['updated_at'] }}</td>
+                        <td>
+                            <a href="{{ url(" admin/products/{$product['id']}/show") }}" class="btn btn-info">Xem</a>
+                            <a href="{{ url(" admin/products/{$product['id']}/edit") }}" class="btn btn-warning">Sửa</a>
+                            <a href="{{ url(" admin/products/{$product['id']}/delete") }}"
+                                onclick="return confirm('Chắc chắn xóa không?');" class="btn btn-danger">Xóa</a>
+                        </td>
+                    </tr>
+                @endforeach
+
             </div>
         </div>
     </section>

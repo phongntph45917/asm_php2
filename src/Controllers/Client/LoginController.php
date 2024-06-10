@@ -60,9 +60,11 @@ class LoginController extends Controller
     public function logout()
     {
         unset($_SESSION['cart-' . $_SESSION['user']['id']]);
+
         unset($_SESSION['user']);
 
-        header('Location: ' . url());
+        header('Location: ' . url(''));
         exit;
+
     }
 }
