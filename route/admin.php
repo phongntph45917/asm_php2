@@ -14,11 +14,10 @@ use Asm\Php2\Controllers\Admin\DashboardController;
 use Asm\Php2\Controllers\Admin\ProductController;
 use Asm\Php2\Controllers\Admin\UserController;
 
-<<<<<<< HEAD
 $router->before('GET|POST', '/admin/*.*', function() {
 
     if (!auth_check()) {
-        header('location: ' . url('/login') );
+        header('location: ' . url('auth/login') );
         exit();
     } 
 
@@ -27,20 +26,6 @@ $router->before('GET|POST', '/admin/*.*', function() {
         exit();
     }
     
-=======
-$router->before('GET|POST', '/admin/*.*', function () {
-
-    if (!auth_check()) {
-        header('location: ' . url('auth/login'));
-        exit();
-    }
-
-    if (!is_admin()) {
-        header('location: ' . url());
-        exit();
-    }
-
->>>>>>> 55273042b8fbe494c0984f0ecdd005caacab8736
 });
 
 $router->mount('/admin', function () use ($router) {
@@ -59,7 +44,6 @@ $router->mount('/admin', function () use ($router) {
     });
 
     $router->mount('/users', function () use ($router) {
-<<<<<<< HEAD
         $router->get('/',               UserController::class . '@index');  // Danh sách
         $router->get('/create',         UserController::class . '@create'); // Show form thêm mới
         $router->post('/store',         UserController::class . '@store');  // Lưu mới vào DB
@@ -69,15 +53,4 @@ $router->mount('/admin', function () use ($router) {
         $router->get('/{id}/delete',    UserController::class . '@delete'); // Xóa
     });
     
-=======
-        $router->get('/', UserController::class . '@index');  // Danh sách
-        $router->get('/create', UserController::class . '@create'); // Show form thêm mới
-        $router->post('/store', UserController::class . '@store');  // Lưu mới vào DB
-        $router->get('/{id}/show', UserController::class . '@show');   // Xem chi tiết
-        $router->get('/{id}/edit', UserController::class . '@edit');   // Show form sửa
-        $router->post('/{id}/update', UserController::class . '@update'); // Lưu sửa vào DB
-        $router->get('/{id}/delete', UserController::class . '@delete'); // Xóa
-    });
-
->>>>>>> 55273042b8fbe494c0984f0ecdd005caacab8736
 });
