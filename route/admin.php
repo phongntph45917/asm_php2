@@ -13,6 +13,7 @@
 use Asm\Php2\Controllers\Admin\DashboardController;
 use Asm\Php2\Controllers\Admin\ProductController;
 use Asm\Php2\Controllers\Admin\UserController;
+use Asm\Php2\Controllers\Admin\DanhmucController;
 
 $router->before('GET|POST', '/admin/*.*', function() {
     if (! isset($_SESSION['user'])) {
@@ -35,13 +36,17 @@ $router->mount('/admin', function () use ($router) {
         $router->get('/{id}/delete', UserController::class . '@delete');
     });
 
-});
-$router->mount('/admin', function () use ($router) {
-
-    $router->get('/', DashboardController::class . '@dashboard');
-
-    // CRUD USER
-    $router->mount('/products', function () use ($router) {
+    // CRUD DANHMUC
+    $router->mount('/danhmucs', function () use ($router) {
+        $router->get('/', DanhmucController::class . '@index');
+        $router->get('/create', DanhmucController::class . '@create');
+        $router->post('/store', DanhmucController::class . '@store');
+        $router->get('/{id}/show', DanhmucController::class . '@show');
+        $router->get('/{id}/edit', DanhmucController::class . '@edit');
+        $router->post('/{id}/update', DanhmucController::class . '@update');
+        $router->get('/{id}/delete', DanhmucController::class . '@delete');
+    });
+ $router->mount('/products', function () use ($router) {
         $router->get('/', ProductController::class . '@index');  // Danh sách
         $router->get('/create', ProductController::class . '@create'); // Show form thêm mới
         $router->post('/store', ProductController::class . '@store');  // Lưu mới vào DB
@@ -50,5 +55,12 @@ $router->mount('/admin', function () use ($router) {
         $router->post('/{id}/update', ProductController::class . '@update'); // Lưu sửa vào DB
         $router->get('/{id}/delete', ProductController::class . '@delete'); // Xóa
     });
-
 });
+// $router->mount('/admin', function () use ($router) {
+
+//     $router->get('/', DashboardController::class . '@dashboard');
+
+//     // CRUD USER
+   
+
+// });
