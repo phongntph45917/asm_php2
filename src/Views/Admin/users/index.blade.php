@@ -33,6 +33,7 @@
                                 <th>EMAIL</th>
                                 <th>CREATED AT</th>
                                 <th>UPDATED AT</th>
+                                <th>ROLE</th>
                                 <th>ACTION</th>
                             </tr>
                         </thead>
@@ -48,6 +49,7 @@
                                     <td><?= $user['email'] ?></td>
                                     <td><?= date('d/m/Y H:i:s', strtotime($user['created_at'])) ?></td>
                                     <td><?= date('d/m/Y H:i:s', strtotime($user['updated_at'])) ?></td>
+                                    <td><?= $user['role'] ?></td>
                                     <td>
 
                                         <a class="btn btn-info"
