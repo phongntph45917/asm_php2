@@ -33,6 +33,7 @@ class UserController extends Controller
 
     public function store()
     {
+
         $validator = new Validator;
         $validation = $validator->make($_POST + $_FILES, [
             'name' => 'required|max:50',
@@ -40,6 +41,7 @@ class UserController extends Controller
             'password' => 'required|min:6',
             'confirm_password' => 'required|same:password',
             'avatar' => 'uploaded_file:0,2M,png,jpg,jpeg',
+            'type'   => 'required|in:admin,member',
         ]);
         $validation->validate();
 
@@ -52,6 +54,7 @@ class UserController extends Controller
             $data = [
                 'name' => $_POST['name'],
                 'email' => $_POST['email'],
+                'type'      => $_POST['type'],
                 'password' => password_hash($_POST['password'], PASSWORD_DEFAULT),
             ];
 
@@ -116,6 +119,7 @@ class UserController extends Controller
             'email' => 'required|email',
             'password' => 'min:6',
             'avatar' => 'uploaded_file:0,2M,png,jpg,jpeg',
+            'type'   => 'required|in:admin,member',
         ]);
         $validation->validate();
 
@@ -128,6 +132,7 @@ class UserController extends Controller
             $data = [
                 'name' => $_POST['name'],
                 'email' => $_POST['email'],
+                'type'      => $_POST['type'],
                 'password' => !empty($_POST['password'])
                     ? password_hash($_POST['password'], PASSWORD_DEFAULT) : $user['password'],
             ];

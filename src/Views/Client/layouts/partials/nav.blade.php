@@ -94,6 +94,15 @@
                                 <a class="nav-link" href="{{ url('/logout') }}">Logout</a>
                             @endif
                         </li>
+                        </li>
+                        <li class="nav-item">
+                            @if (is_admin())
+                                <a class="nav-link" href="{{ url('/admin') }}">Admin</a>
+                            @endif
+
+                            @if (!is_admin())
+                            @endif
+                        </li>
                     </ul>
 
                 </div>
