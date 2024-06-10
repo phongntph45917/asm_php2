@@ -19,6 +19,7 @@ use Asm\Php2\Controllers\Client\DashboardController;
 use Asm\Php2\Controllers\Client\LoginController;
 use Asm\Php2\Controllers\Client\ProductController;
 
+
 $router->get('/', DashboardController::class . '@dashboard');
 $router->get('/about', AboutController::class . '@index');
 
@@ -32,3 +33,6 @@ $router->get('/products/{id}', ProductController::class . '@detail'); // Chi tiá
 $router->get('/login', LoginController::class . '@showFormLogin');
 $router->post('/handle-login', LoginController::class . '@login');
 $router->post('/logout', LoginController::class . '@logout');
+
+$router->get('/contact', [ContactController::class, 'index']);
+$router->post('/contact/store', [ContactController::class, 'store']);
