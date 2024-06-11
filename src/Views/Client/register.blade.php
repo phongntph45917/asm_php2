@@ -52,6 +52,7 @@
             </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>
+            <i>You have had an account ?<a href="{{ url("/login") }}">Login</a></i>
         </form>
     </div>
     </div>
