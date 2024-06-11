@@ -85,7 +85,7 @@
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">My Profile</a>
                             <a href="#" class="dropdown-item">Settings</a>
-                            <a href="{{ url('') }}" class="dropdown-item">Home</a>
+                            <a href="{{ url('/products') }}" class="dropdown-item">Home</a>
                             <a href="{{ url('logout') }}" class="dropdown-item">Logout</a>
 
                             <!-- <form action="{{ url('logout') }}" method="POST">
