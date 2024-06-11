@@ -46,6 +46,8 @@ $router->mount('/admin', function () use ($router) {
         $router->post('/{id}/update', DanhmucController::class . '@update');
         $router->get('/{id}/delete', DanhmucController::class . '@delete');
     });
+
+
     $router->mount('/products', function () use ($router) {
         $router->get('/', ProductController::class . '@index');  // Danh sách
         $router->get('/create', ProductController::class . '@create'); // Show form thêm mới

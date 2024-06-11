@@ -28,7 +28,7 @@ class ProductController extends Controller
     {
         $product = $this->product->findByID($id);
 
-        $this->renderViewAdmin('products.show', [
+        $this->renderViewClient('products.show', [
             'product' => $product
         ]);
     }

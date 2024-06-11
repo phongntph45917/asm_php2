@@ -26,8 +26,11 @@ $router->get('/about', AboutController::class . '@index');
 $router->get('/contact', ContactController::class . '@index');
 $router->post('/contact/store', ContactController::class . '@store');
 
-$router->get('/products', ProductController::class . '@index'); // Danh sách sản phẩm
-$router->get('/products/{id}', ProductController::class . '@detail'); // Chi tiết sản phẩm
+$router->mount('/products', function () use ($router) {
+    $router->get('/', ProductController::class . '@index');  // Danh sách
+    $router->get('/{id}/show', ProductController::class . '@show');   // Xem chi tiết
+});
+
 
 
 $router->get('/login', LoginController::class . '@showFormLogin');

@@ -48,7 +48,7 @@ unset($_SESSION['msg']);
             <td>{{ $product['created_at'] }}</td>
             <td>{{ $product['updated_at'] }}</td>
             <td>
-                <a href="{{ url(" /products/{$product['id']}") }}" class="btn btn-info">Xem</a>
+                <a href="{{url(" /products/{$product['id']}/show") }}" class="btn btn-info">Xem</a>
             </td>
         </tr>
         @endforeach

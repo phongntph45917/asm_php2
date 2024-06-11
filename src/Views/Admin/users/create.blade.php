@@ -53,6 +53,10 @@
             <input type="text" class="form-control" id="confirm_password" placeholder="Enter confirm_password"
                 name="confirm_password">
         </div>
+        <div class="mb-3 mt-3">
+            <label for="name" class="form-label">Type:</label>
+            <input type="text" class="form-control" id="type" placeholder="Enter type" name="type">
+        </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </body>
