@@ -2,14 +2,22 @@
     <header class="navigation fixed-top">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-white">
+<<<<<<< HEAD
                 <a class="navbar-brand order-1" href="{{ url('/products') }}">
+=======
+                <a class="navbar-brand order-1" href="{{ url('/') }}">
+>>>>>>> 174ee75433100c1cc6e1e236a90e7a79909e7fbd
                     <img class="img-fluid" width="100px" src="{{ asset('/assets/client/images/logo.png') }}"
                         alt="Reader | Hugo Personal Blog Template">
                 </a>
                 <div class="collapse navbar-collapse text-center order-lg-2 order-3" id="navigation">
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item ">
+<<<<<<< HEAD
                             <a class="nav-link" href="{{ url('/products') }}">
+=======
+                            <a class="nav-link" href="{{ url('/') }}">
+>>>>>>> 174ee75433100c1cc6e1e236a90e7a79909e7fbd
                                 Trang chủ <i class="ti-angle-down ml-1"></i>
                             </a>
 
